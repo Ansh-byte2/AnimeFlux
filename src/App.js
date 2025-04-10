@@ -63,7 +63,7 @@ const AnimePage = () => {
     setCurrentVideo(defaultVideo.HDSUB1);
     setSelectedServer("HDSUB1");
     setToggle(1);
-  }, []);
+  }, [videos]); // Add 'videos' to the dependency array
 
 
   
@@ -191,7 +191,7 @@ const AnimePage = () => {
           className="w-16 md:w-32 lg:w-48"
           style={{ height: "191px", width: "min-content", objectFit: "cover" }}
             />
-            <h2 className="text-2xl font-bold mt-2 text-center" style={{ fontSize: "10px" }}></h2>
+            <h2 className="text-2xl font-bold mt-2 text-center" style={{ fontSize: "10px" }}>Anime Poster</h2>
 
             <h2 className="text-xl font-bold mb-4">List of episodes:</h2>
             <div className="grid grid-cols-4 gap-2">
@@ -210,11 +210,12 @@ const AnimePage = () => {
           </div>
           <div className="flex-1 p-4 bg-gray-800 rounded-lg shadow-md">
             <div className="relative w-full rounded-lg overflow-hidden" style={{ paddingTop: "56.25%" }}>
-          <iframe
-            src={currentVideo}
-            className="absolute top-0 left-0 w-full h-full rounded-lg"
-            allow="autoplay" 
-            allowFullScreen
+            <iframe
+           src={currentVideo}
+          className="absolute top-0 left-0 w-full h-full rounded-lg"
+          allow="autoplay"
+          allowFullScreen
+          title={`Episode ${toggle}`} // Add a unique title
           ></iframe>
             </div>
         {/* Episode Selection UI */}
